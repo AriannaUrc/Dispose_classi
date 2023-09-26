@@ -12,14 +12,20 @@ namespace Dispose_classi
         {
             Esempio esempio = new Esempio();
 
-            Console.WriteLine("valore stringa: " + esempio.Stringa);
+            Console.WriteLine("Inserire valore stringa: ");
+            esempio.Stringa = Console.ReadLine();
+
+            Console.WriteLine("Inserire valore numero: ");
+            esempio.Numero = int.Parse(Console.ReadLine());
+
+
+            Console.WriteLine("\n\nvalore stringa: " + esempio.Stringa);
             Console.WriteLine("valore numero: " + esempio.Numero);
 
-            Console.WriteLine("\nChiamiamo la funzione dispose...");
+            Console.WriteLine("\n\n\nChiamiamo la funzione dispose...");
             esempio.Dispose();
 
-
-            Console.WriteLine("\nChiamiamo nuovamente la funzione dispose...");
+            Console.WriteLine("\n\nChiamiamo nuovamente la funzione dispose...\n\n");
             esempio.Dispose();
         }
     }
