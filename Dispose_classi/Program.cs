@@ -10,6 +10,17 @@ namespace Dispose_classi
     {
         static void Main(string[] args)
         {
+            Esempio esempio = new Esempio();
+
+            Console.WriteLine("valore stringa: " + esempio.Stringa);
+            Console.WriteLine("valore numero: " + esempio.Numero);
+
+            Console.WriteLine("\nChiamiamo la funzione dispose...");
+            esempio.Dispose();
+
+
+            Console.WriteLine("\nChiamiamo nuovamente la funzione dispose...");
+            esempio.Dispose();
         }
     }
 
@@ -18,39 +29,39 @@ namespace Dispose_classi
     {
         //classe esempio, string e double..? get e set, costruttori distruttore, writeline in dispose
         //attributi
-        private string es_string;
-        private double es_double;
+        private string stringa;
+        private double numero;
         private bool disposed = false;
 
 
         //costruttore con paramentri
         public Esempio(double valore1, string string1)
         {
-            es_double = valore1;
-            es_string = string1;
+            numero = valore1;
+            stringa = string1;
         }
 
         //costruttore senza parametri
         public Esempio()
         {
-            es_double = 0;
-            es_string = "vuoto";
+            numero = 0;
+            stringa = "vuoto";
         }
 
 
         //set e get stringa
-        public string Es_string
+        public string Stringa
         {
-            get { return es_string; }
-            set { es_string = value; }
+            get { return stringa; }
+            set { stringa = value; }
         }
 
 
         //set e get double
-        public string Es_double
+        public double Numero
         {
-            get { return es_string; }
-            set { es_string = value; }
+            get { return numero; }
+            set { numero = value; }
         }
 
 
@@ -66,11 +77,16 @@ namespace Dispose_classi
         protected virtual void Dispose(bool disposing)
         {
             if (disposed)
+            {
+                Console.WriteLine("la risorsa è già stata cancellata...");
                 return;
+            }
+                
 
             if (disposing)
             {
                 // rilascia le risorse gestite qui (qual'ora ci fossero)
+                Console.WriteLine("sta cancellando...");
             }
             // rilascia le risorse non gestite qui (qual'ora ci fossero)
 
